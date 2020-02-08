@@ -1,5 +1,7 @@
 import React from "react";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const MovieSearch = (props) => {
   return (
@@ -12,9 +14,11 @@ const MovieSearch = (props) => {
           aria-describedby="basic-addon2"
         />
         <InputGroup.Append>
+        <Link to='/results'>
           <Button onClick={props.handleOnClick} variant="outline-secondary">
             Search
           </Button>
+        </Link>
         </InputGroup.Append>
       </InputGroup>
     </div>

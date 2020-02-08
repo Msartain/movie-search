@@ -3,10 +3,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import getMovieInfo from '../../utils/MovieSearch'
 import './App.css';
 
+// - - - - - - - Components - - - - - - 
 import NavBar from '../../components/NavBar/NavBar';
 
+// - - - - - - - Pages - - - - - - 
 import LandingPage from '../LandingPage/LandingPage';
 import SearchPage from '../SearchPage/Search';
+import ResultsPage from '../ResultsPage/Results';
 
 class App extends Component {
   state = {
@@ -15,13 +18,13 @@ class App extends Component {
   };
 
   handleOnChange = e => {
-    this.setState({seacrh: e.target.value})
+    this.setState({search: e.target.value})
   };
 
   handleOnClick = () => {
-    console.log('click ran')
     getMovieInfo(this.state.search).then(results => {
       this.setState({movie : results})
+      console.log(this.state.movie)
     })
   };
 
@@ -35,11 +38,15 @@ class App extends Component {
           <Route exact path='/' render={() =>
           <LandingPage />
           } />
-          <Route exact path='/search' render={() =>
+          <Route exact path='/search' render={({history}) =>
           <SearchPage
+            history={history}
             handleOnChange={this.handleOnChange}
             handleOnClick={this.handleOnClick}
           />
+          } />
+          <Route exact path='/results' render={() =>
+          <ResultsPage />
           } />
         </Switch>
       </Router>

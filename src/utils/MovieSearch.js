@@ -4,7 +4,6 @@ async function getMovieInfo(movie){
     try {
         let data = await fetch(url)
         let results = data.json();
-        console.log(results)
         return results;
     } catch (error) {
         console.log(error)
