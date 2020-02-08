@@ -1,0 +1,8 @@
+.results-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 60%;
+    height: 70%;
+}

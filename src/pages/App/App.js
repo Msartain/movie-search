@@ -46,7 +46,9 @@ class App extends Component {
           />
           } />
           <Route exact path='/results' render={() =>
-          <ResultsPage />
+          <ResultsPage 
+            movie={this.state.movie}
+          />
           } />
         </Switch>
       </Router>
