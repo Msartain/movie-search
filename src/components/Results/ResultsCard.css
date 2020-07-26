@@ -2,7 +2,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    width: 60%;
-    height: 70%;
+    width: 100vw;
+    height: 80vh;
+    margin: 30px;
+}
+
+.movie-details {
+    width: 50%;
+    height: 100%;
+    padding: 5%;
+}
+
+.movie-details #title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#ratings span {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 20px;
 }

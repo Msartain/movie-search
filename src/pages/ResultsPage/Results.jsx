@@ -1,14 +1,17 @@
 import React from 'react';
 import './ResultsPage.css'
 import ResultsCard from '../../components/Results/ResultsCard';
+import NewSearchButton from '../../components/NewSearch/NewSearchButton';
 
 const ResultsPage = (props) => {
+
+
     return(
         <div className="results">
-            <h1>Results:</h1>
             <ResultsCard 
                 movie={props.movie}
             />
+            <NewSearchButton></NewSearchButton>
         </div>
     )
 }

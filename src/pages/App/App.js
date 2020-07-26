@@ -11,6 +11,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import SearchPage from '../SearchPage/Search';
 import ResultsPage from '../ResultsPage/Results';
 
+
 class App extends Component {
   state = {
     search: '',
@@ -23,8 +24,11 @@ class App extends Component {
 
   handleOnClick = () => {
     getMovieInfo(this.state.search).then(results => {
+      if (results.Response === "False") {
+        this.setState({movie: 'Movie not found!'})
+      }
       this.setState({movie : results})
-      console.log(this.state.movie)
+      console.log('Movie object:', this.state.movie)
     })
   };
 
