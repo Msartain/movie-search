@@ -24,7 +24,7 @@ class App extends Component {
 
   handleOnClick = () => {
     getMovieInfo(this.state.search).then(results => {
-      if (results.Response === "False") {
+      if (results[0].Response === "False") {
         this.setState({movie: 'Movie not found!'})
       }
       this.setState({movie : results})

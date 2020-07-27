@@ -8,10 +8,9 @@ async function getMovieInfo(movie){
     
     try {
         let data = await fetch(omdbUrl);
-        let results = data.json();
-        console.log(results)
-        getImdbData(movie);
-        return results;
+        let results = await data.json();
+        let imdbResults = await getImdbData(movie);
+        return [results, imdbResults];
     } catch (error) {
         console.log(error)
         alert('There was an error loading that movie. Please try again.')
@@ -23,15 +22,10 @@ async function getImdbData(movie) {
     
     try {
         const data = await fetch(imdbUrl)
-        console.log('data:', data);
-
-        let searchObject = data.json;
-        console.log('searchObject:', searchObject);
+        let searchObject = await data.json();
 
         const movieId = searchObject.results;
-        console.log(movieId);
-
-        getImdbMovieData(movieId[0].id);
+        return  getImdbMovieData(movieId[0].id);
     } catch (error) {
         console.log(error);
     }
@@ -42,8 +36,7 @@ async function getImdbMovieData(id) {
 
     try {
         const data = await fetch(imdbIdUrl);
-        let movieData = data.json;
-        console.log(movieData);
+        let movieData = await data.json();
         return movieData;
     } catch (error) {
         console.log(error);

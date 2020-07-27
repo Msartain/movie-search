@@ -1,22 +1,24 @@
 import React from 'react';
 import './ResultsCard.css'
 
-const ResultsCard = (props) => {
+const ResultsCard = ({ omdb, imdb }) => {
+console.log(omdb);
+console.log(imdb);
 
-const movieCard = props.movie.Response === "True" ? 
+const movieCard = omdb.Response === "True" ? 
     ( 
         <div className="results-card">
             <div className="poster">
-            <img src={props.movie.Poster} alt="movie poster"></img>
+            <img src={omdb.Poster} alt="movie poster"></img>
             </div>
             <div className="movie-details">
-                <span id="title">{props.movie.Title}</span>
-                <p id="cast">{props.movie.Actors}</p>
-                <p id="plot">{props.movie.Plot}</p>
-                <p id="release">Year: {props.movie.Released}</p>
+                <span id="title">{omdb.Title}</span>
+                <p id="cast">{omdb.Actors}</p>
+                <p id="plot">{omdb.Plot}</p>
+                <p id="release">Year: {omdb.Released}</p>
                 <div id="ratings">
                     <span>Ratings:</span>
-                    {props.movie.Ratings.map( (rating) => 
+                    {omdb.Ratings.map( (rating) => 
                         <p><strong>Source: </strong>{rating.Source} <strong>Rating: </strong>{rating.Value}</p>
                     )}
                 </div>
