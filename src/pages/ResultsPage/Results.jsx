@@ -9,8 +9,7 @@ const ResultsPage = (props) => {
     return(
         <div className="results">
             <ResultsCard 
-                omdb={props.movie[0]}
-                imdb={props.movie[1]}
+                movie={props.movie}
             />
             <NewSearchButton></NewSearchButton>
         </div>

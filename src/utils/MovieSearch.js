@@ -23,7 +23,6 @@ async function getImdbData(movie) {
     try {
         const data = await fetch(imdbUrl)
         let searchObject = await data.json();
-
         const movieId = searchObject.results;
         return  getImdbMovieData(movieId[0].id);
     } catch (error) {
