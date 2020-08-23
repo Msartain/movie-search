@@ -5,7 +5,6 @@ import NewSearchButton from '../../components/NewSearch/NewSearchButton';
 
 const ResultsPage = (props) => {
 
-
     return(
         <div className="results">
             <ResultsCard 
